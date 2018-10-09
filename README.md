@@ -21,3 +21,9 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 https://github.com/cyerogy/wxshop.git
+
+1、实现api的跨域请求（flyio）
+
+2、有赞的移动端（vant）
+
+
