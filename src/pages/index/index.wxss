@@ -1,0 +1,20 @@
+page {
+  background: #f3f3f3;
+  padding-bottom:60px;
+}
+.van-card{
+	background:#fff !important;
+}
+.van-checkbox{
+	margin-left:8px;
+}
+.van-tabbar--fixed{
+	position:relative !important;
+}
+.van-submit-bar{
+	position:relative !important;
+}
+.van-submit-bar__text{
+	text-align:left !important;
+	margin-left:10px;
+}

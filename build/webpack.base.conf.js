@@ -25,12 +25,15 @@ function getEntry(rootSrc) {
 const appEntry = { app: resolve('./src/main.js') }
 const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
 const entry = Object.assign({}, appEntry, pagesEntry)
-
+const MpvueEntry = require('mpvue-entry')
+const Px2rpx = require('px2rpx');
+const px2rpxIns = new Px2rpx({ rpxUnit: 0.5 });
 module.exports = {
   // 如果要自定义生成的 dist 目录里面的文件路径，
   // 可以将 entry 写成 {'toPath': 'fromPath'} 的形式，
   // toPath 为相对于 dist 的路径, 例：index/demo，则生成的文件地址为 dist/index/demo.js
-  entry,
+  //entry,
+  entry: MpvueEntry.getEntry('./src/router/router.js'),
   target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
@@ -95,15 +98,17 @@ module.exports = {
   },
   plugins: [
     new MpvuePlugin(),
-    new CopyWebpackPlugin([{
-      from: '**/*.json',
-      to: ''
-    }], {
-      context: 'src/'
-    }),
+    new MpvueEntry(),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../static'),
       to: path.resolve(__dirname, '../dist/static'),
+      transform(content, path) {
+        if (path.endsWith('.wxss')) {
+          return px2rpxIns.generaterpx(content.toString(), 1)
+        } else {
+          return content
+        }
+      },
       ignore: ['.*']
     }])
   ]
