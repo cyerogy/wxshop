@@ -20,12 +20,26 @@ module.exports = [{
         "van-badge-group": "/static/vant/badge-group/index"
       }
     }
-  },
-  {
+  }, {
     path: "pages/goods/detail",
     name: 'goodsdetail',
     config: {
-      "navigationBarTitleText": "商品详情"
+      "navigationBarTitleText": "商品详情",
+      "usingComponents": {
+        "van-popup": "/static/vant/popup/index",
+        "van-cell": "/static/vant/cell/index",
+        "van-cell-group": "/static/vant/cell-group/index",
+        "van-icon": "/static/vant/icon/index",
+        "van-goods-action": "/static/vant/goods-action/index",
+        "van-goods-action-icon": "/static/vant/goods-action-icon/index",
+        "van-goods-action-button": "/static/vant/goods-action-button/index",
+        "van-button": "/static/vant/button/index",
+        "van-stepper": "/static/vant/stepper/index",
+        "van-row": "/static/vant/row/index",
+        "van-col": "/static/vant/col/index",
+        "van-tab": "/static/vant/tab/index",
+        "van-tabs": "/static/vant/tabs/index"
+      }
     }
   },
   {

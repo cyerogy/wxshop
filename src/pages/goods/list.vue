@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <van-tabs :active="active" line-width="100" @change="changeTab">
-      <van-tab title="标签 1"></van-tab>
-      <van-tab title="标签 2"></van-tab>
-      <van-tab title="标签 3"></van-tab>
-      <van-tab title="标签 4"></van-tab>
-      <van-tab title="标签 5"></van-tab>
-      <van-tab title="标签 6"></van-tab>
-    </van-tabs>
+    <div class="top">
+      <van-tabs :active="active" line-width="100" @change="changeTab">
+        <van-tab title="标签 1"></van-tab>
+        <van-tab title="标签 2"></van-tab>
+        <van-tab title="标签 3"></van-tab>
+        <van-tab title="标签 4"></van-tab>
+        <van-tab title="标签 5"></van-tab>
+        <van-tab title="标签 6"></van-tab>
+      </van-tabs>
+    </div>
     <div class="clearfix"></div>
     <div>
       {{string}}

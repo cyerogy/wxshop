@@ -1,6 +1,17 @@
+page {
+  background: #f3f3f3;
+  padding-bottom:100px;
+  color:#666;
+}
 .clearfix {
   clear: both;
 }
-.van-tabs__wrap{
+.top .van-tabs__wrap{
     position:fixed !important;
+}
+.van-popup{
+	overflow-y:visible !important;
+}
+.van-popup--bottom{
+	height:60% !important;
 }

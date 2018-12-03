@@ -1,5 +1,5 @@
 <template>
-  <swiper class="container" :indicator-dots="indicator" :autoplay="autoplay" :interval="interval" :duration="duration" :circular="circular">
+  <swiper class="container" :indicator-dots="indicator" :autoplay="autoplay" :interval="interval" :duration="duration" :circular="circular" v-bind:style="{height: imageHeight + 'px' }">
     <block v-for="(item,index) in movies" :key='index'>
       <swiper-item>
         <image :src="item.src" class="slide-image" mode="aspectFill" style="width: 100%;height:100%" />
@@ -36,9 +36,17 @@ export default {
     }
   },
   data() {
-    return {
-      imageWidth: wx.getSystemInfoSync().windowWidth,
-    }
+    return { imageHeight: 0 }
+  },
+  onLoad() {
+    var that = this;
+    var image_url = this.movies[0]['src'];
+    wx.getImageInfo({
+      src: image_url,
+      success: function(res) {
+        that.imageHeight = res.height;
+      }
+    })
   }
 }
 
