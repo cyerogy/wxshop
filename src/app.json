@@ -1,8 +1,5 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/index/message"
-  ],
+  "pages": [],
   "window":
   {
     "backgroundTextStyle": "light",

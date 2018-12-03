@@ -3,8 +3,8 @@
     <div class="clearfix"></div>
     <div class="tabbar-div">
       <van-tabbar :active="selectindex" @change="changeTabber" z-index="5">
-        <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
-        <van-tabbar-item icon="chat" info="5">消息</van-tabbar-item>
+        <van-tabbar-item icon="home">首页</van-tabbar-item>
+        <van-tabbar-item icon="wap-nav">分类</van-tabbar-item>
         <van-tabbar-item icon="cart" info="5">购物车</van-tabbar-item>
         <van-tabbar-item icon="gold-coin">我的</van-tabbar-item>
       </van-tabbar>

@@ -1,17 +1,20 @@
 <template>
   <div class="container">
+    <div v-if="showflag == 0 || showflag==1">
+      <van-search :value="searchkey" placeholder="请输入搜索关键词" @search="onSearch" />
+    </div>
     <!-- 首页 -->
     <div v-if="showflag == 0">
       <swipe :movies="imagedata"></swipe>
-      <view class="van-hairline--top-bottom">热销品<a href="/pages/product/main">更多></a></view>
-      <mygoodlist :goodlist="goodlist"></mygoodlist>
-      <div class="clearfix"></div>
+      <div class="index-good-list">
+        <view class="van-hairline--top-bottom">热销品<a href="/pages/goods/list">更多></a></view>
+        <mygoodlist :goodlist="goodlist"></mygoodlist>
+        <div class="clearfix"></div>
+      </div>
     </div>
-    <!-- 消息中心 -->
+    <!-- 分类 -->
     <div v-if="showflag == 1">
-      <van-panel title="标题" desc="描述信息">
-      </van-panel>
-      <div class="clearfix"></div>
+      <category></category>
     </div>
     <!-- 购物车-->
     <div v-if="showflag == 2">
@@ -26,13 +29,15 @@ import swipe from "@/components/swipe.vue";
 import mygoodlist from "@/components/goodlist.vue";
 import tabber from "@/components/tabber.vue";
 import cart from "@/components/cart.vue";
+import category from "@/components/category.vue";
 import "./index.wxss";
 export default {
-  components: { swipe, mygoodlist, tabber, cart },
+  components: { swipe, mygoodlist, tabber, cart, category },
   data() {
     return {
-      active: 2,
-      showflag: 2,
+      active: 0,
+      showflag: 0,
+      searchkey: '',
       imagedata: [
         { src: "https://img.yzcdn.cn/public_files/2017/09/05/3bd347e44233a868c99cf0fe560232be.jpg" },
         { src: "https://img.yzcdn.cn/public_files/2017/09/05/c0dab461920687911536621b345a0bc9.jpg" },
@@ -40,21 +45,25 @@ export default {
         { src: "https://img.yzcdn.cn/public_files/2017/09/05/fd08f07665ed67d50e11b32a21ce0682.jpg" }
       ],
       goodlist: [{
+        id: 1,
         src: "/static/image/1.jpg",
         desc: "测试产品1测试产品1测试产品1测试产品1测试产品1",
         price: "12",
         number: 10
       }, {
+        id: 2,
         src: "/static/image/2.jpg",
         desc: "测试产品2测试产品2测试产品2测试产品2测试产品2",
         price: "24",
         number: 15
       }, {
+        id: 3,
         src: "/static/image/3.jpg",
         desc: "测试产品3测试产品3测试产品3测试产品3测试产品3",
         price: "26",
         number: 20
       }, {
+        id: 4,
         src: "/static/image/1.jpg",
         desc: "测试产品4测试产品4测试产品4测试产品4测试产品4",
         price: "28",
@@ -67,32 +76,28 @@ export default {
         origin_price: "20",
         price: "12",
         number: 1,
-        tag: '爆款',
-        checked: false
+        tag: '爆款'
       }, {
         src: "/static/image/2.jpg",
         desc: "测试产品2测试产品2测试产品2测试产品2测试产品2",
         title: '测试产品2',
         origin_price: "25",
         price: "24",
-        number: 1,
-        checked: true
+        number: 1
       }, {
         src: "/static/image/3.jpg",
         desc: "测试产品3测试产品3测试产品3测试产品3测试产品3",
         title: '测试产品3',
         origin_price: "30",
         price: "26",
-        number: 1,
-        checked: false
+        number: 1
       }, {
         src: "/static/image/1.jpg",
         desc: "测试产品4测试产品4测试产品4测试产品4测试产品4",
         title: '测试产品4',
         origin_price: "40",
         price: "28",
-        number: 2,
-        checked: false
+        number: 2
       }]
     }
   },
@@ -102,16 +107,38 @@ export default {
         console.log(d)
       })
     },
-    getRadioResult() {
-      let args = Array.from(arguments);
-      console.log(args);
-    },
     changeTabber(event) {
       this.showflag = event.mp.detail;
     },
     changeTabbarData() {
       var args = Array.from(arguments);
-      this.showflag = args[0]['showindex'];
+      var showindex = args[0]['showindex'];
+      var title = "";
+      switch (parseInt(showindex)) {
+        case 0:
+          title = "首页"
+          break;
+        case 1:
+          title = "分类"
+          break;
+        case 2:
+          title = "购物车"
+          break;
+        case 3:
+          title = "我的"
+          break;
+      }
+      wx.setNavigationBarTitle({
+        title: title
+      })
+      this.showflag = showindex;
+    },
+    onSearch(event) {
+      this.searchkey = event.mp.detail;
+      console.log(this.searchkey)
+    },
+    onCancel() {
+
     }
   },
   created() {
@@ -135,6 +162,11 @@ export default {
 
 .clearfix {
   clear: both;
+}
+
+.index-good-list {
+  background: #fff;
+  margin-top: 15px;
 }
 
 </style>

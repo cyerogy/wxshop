@@ -1,6 +1,7 @@
 page {
   background: #f3f3f3;
-  padding-bottom:60px;
+  padding-bottom:100px;
+  color:#666;
 }
 .van-card{
 	background:#fff !important;
@@ -17,4 +18,7 @@ page {
 .van-submit-bar__text{
 	text-align:left !important;
 	margin-left:10px;
+}
+.van-badge-group{
+	width:100% !important;
 }

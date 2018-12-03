@@ -2,7 +2,7 @@
   <swiper class="container" :indicator-dots="indicator" :autoplay="autoplay" :interval="interval" :duration="duration" :circular="circular">
     <block v-for="(item,index) in movies" :key='index'>
       <swiper-item>
-        <image :src="item.src" class="slide-image" mode="aspectFill" />
+        <image :src="item.src" class="slide-image" mode="aspectFill" style="width: 100%;height:100%" />
       </swiper-item>
     </block>
   </swiper>
@@ -35,13 +35,17 @@ export default {
       default: true
     }
   },
-  data() { return {} }
+  data() {
+    return {
+      imageWidth: wx.getSystemInfoSync().windowWidth,
+    }
+  }
 }
 
 </script>
 <style>
 swiper {
-  height: 280px !important
+  height: 295px !important
 }
 
 </style>

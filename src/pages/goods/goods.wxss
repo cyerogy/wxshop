@@ -1,0 +1,6 @@
+.clearfix {
+  clear: both;
+}
+.van-tabs__wrap{
+    position:fixed !important;
+}
