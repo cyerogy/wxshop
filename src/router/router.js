@@ -53,5 +53,17 @@ module.exports = [{
         "van-tabs": "/static/vant/tabs/index"
       }
     }
+  }, {
+    path: "pages/chart/index",
+    name: 'chartindex',
+    config: {
+      "navigationBarTitleText": "客服对话",
+      "usingComponents": {
+        "van-cell-group": "/static/vant/cell-group/index",
+        "van-cell": "/static/vant/cell/index",
+        "van-button": "/static/vant/button/index",
+        "van-field": "/static/vant/field/index"
+      }
+    }
   }
 ];

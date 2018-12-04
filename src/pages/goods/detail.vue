@@ -23,7 +23,7 @@
       </van-tabs>
     </div>
     <van-goods-action>
-      <van-goods-action-icon icon="chat" text="客服" bind:click="onClickIcon" />
+      <van-goods-action-icon icon="chat" text="联系客服" @click="clickCustomerService" />
       <van-goods-action-icon icon="cart" text="购物车" bind:click="onClickIcon" />
       <van-goods-action-button text="加入购物车" bind:click="onClickButton" />
     </van-goods-action>
@@ -87,6 +87,9 @@ export default {
     },
     changeTab() {
 
+    },
+    clickCustomerService() {
+      this.$router.push("/pages/chart/index")
     }
   }
 };
