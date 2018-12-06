@@ -22,3 +22,15 @@ page {
 .van-badge-group{
 	width:100% !important;
 }
+.order-list .van-col{
+	height:60px;
+	line-height:20px;
+	font-size:14px;
+}
+.order-list .iconfont{
+	padding-top:15px;
+	padding-bottom:5px;
+}
+.van-badge{
+	font-size:13px !important;
+}

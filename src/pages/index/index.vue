@@ -7,7 +7,7 @@
     <div v-if="showflag == 0">
       <swipe :movies="imagedata"></swipe>
       <div class="index-good-list">
-        <view class="van-hairline--top-bottom">热销品<a href="/pages/goods/list">更多></a></view>
+        <view class="van-hairline--top-bottom web-font">热销品<a href="/pages/goods/list" class="web-font">更多></a></view>
         <mygoodlist :goodlist="goodlist"></mygoodlist>
         <div class="clearfix"></div>
       </div>
@@ -21,6 +21,10 @@
       <cart :cartgood="cartgoodlist"></cart>
       <div class="clearfix"></div>
     </div>
+    <!-- 个人中心 -->
+    <div v-if="showflag == 3">
+      <mycenter></mycenter>
+    </div>
     <tabber :selectindex="active" @importData="changeTabbarData" ref="tabberref"></tabber>
   </div>
 </template>
@@ -30,9 +34,10 @@ import mygoodlist from "@/components/goodlist.vue";
 import tabber from "@/components/tabber.vue";
 import cart from "@/components/cart.vue";
 import category from "@/components/category.vue";
+import mycenter from "@/components/mycenter.vue";
 import "./index.wxss";
 export default {
-  components: { swipe, mygoodlist, tabber, cart, category },
+  components: { swipe, mygoodlist, tabber, cart, category, mycenter },
   data() {
     return {
       active: 0,

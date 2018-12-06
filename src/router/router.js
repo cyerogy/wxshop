@@ -17,7 +17,9 @@ module.exports = [{
         "van-dialog": "/static/vant/dialog/index",
         "van-search": "/static/vant/search/index",
         "van-badge": "/static/vant/badge/index",
-        "van-badge-group": "/static/vant/badge-group/index"
+        "van-badge-group": "/static/vant/badge-group/index",
+        "van-cell": "/static/vant/cell/index",
+        "van-cell-group": "/static/vant/cell-group/index",
       }
     }
   }, {

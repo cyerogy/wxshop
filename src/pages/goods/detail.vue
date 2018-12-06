@@ -16,7 +16,7 @@
       </van-cell-group>
     </div>
     <div class="clearfix"></div>
-    <div class="detail-info">
+    <div class="detail-info web-font">
       <van-tabs :active="active" @change="changeTab">
         <van-tab title="详情">详情</van-tab>
         <van-tab title="评价">评价</van-tab>
@@ -32,17 +32,17 @@
         <div class="popup-image-div">
           <image src="/static/image/1.jpg" />
         </div>
-        <div class="popup-price">
+        <div class="popup-price web-font">
           <span class="symbol">￥</span><span class="price">166</span>
           <br />
-          <span class="stock">库存：9999</span>
+          <span class="stock web-font">库存：9999</span>
         </div>
         <van-icon name="close" @click="closeDetail" class="popup-close"></van-icon>
         <div class="clearfix"></div>
         <div class="line"></div>
         <div class="product-attribute">
           <van-row>
-            <van-col span="4"><label>数量</label></van-col>
+            <van-col span="4"><label class="web-font">数量</label></van-col>
             <van-col offset="12" span="8">
               <van-stepper value="1" @change="changeNumber" />
             </van-col>

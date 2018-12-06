@@ -11,7 +11,7 @@
       </van-tabs>
     </div>
     <div class="clearfix"></div>
-    <div>
+    <div class="web-font">
       {{string}}
     </div>
   </div>

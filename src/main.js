@@ -2,6 +2,7 @@ import Vue from 'vue'
 import MpvueRouterPatch from 'mpvue-router-patch'
 import App from './App'
 import fly from './http/api'
+import "../static/common/index.wxss"
 import "../static/vant/common/index.wxss"
 Vue.config.productionTip = false
 Vue.prototype.$http = fly;
